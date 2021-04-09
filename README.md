@@ -1,4 +1,4 @@
 # Network-Programming
 
-based on TCP/IP,  Socket on Windows
+based on TCP/IP,  <WinSock2.h> on Windows
 
