@@ -36,7 +36,7 @@ int main(int argc, char* argv[])
 
 	memset(&servAdr, 0, sizeof(servAdr));
 	servAdr.sin_family = AF_INET;
-	servAdr.sin_addr.s_addr = htonl(INADDR_ANY); // 127.0.0.1 ∑Œ «ÿæﬂ«œ¥¬∞≈ æ∆¥œ∞°? ø÷ µ«¥¬∞≈¡ˆ?
+	servAdr.sin_addr.s_addr = htonl(INADDR_ANY); // 127.0.0.1 Î°ú Ìï¥ÏïºÌïòÎäîÍ±∞ ÏïÑÎãàÍ∞Ä? Ïôú ÎêòÎäîÍ±∞ÏßÄ?
 	servAdr.sin_port = htons(atoi(argv[1]));
 
 	if (bind(hServSock, (SOCKADDR*)&servAdr, sizeof(servAdr)) == SOCKET_ERROR)
@@ -46,13 +46,13 @@ int main(int argc, char* argv[])
 
 	while (1)
 	{
-		recvCnt = recvfrom(hServSock, (char*)&degree, sizeof(int), 0, (SOCKADDR*)&clntAdr, &clntAdrSize); // &clntAdrSize); ¿Ã∞« ø÷?
-		printf("ø¨ªÍ ø‰√ª (%d Byte) from IP:%s Port: %d   >> ", recvCnt, inet_ntoa(clntAdr.sin_addr), ntohs(clntAdr.sin_port));
+		recvCnt = recvfrom(hServSock, (char*)&degree, sizeof(int), 0, (SOCKADDR*)&clntAdr, &clntAdrSize); // &clntAdrSize); Ïù¥Í±¥ Ïôú?
+		printf("Ïó∞ÏÇ∞ ÏöîÏ≤≠ (%d Byte) from IP:%s Port: %d   >> ", recvCnt, inet_ntoa(clntAdr.sin_addr), ntohs(clntAdr.sin_port));
 		
 		radian = deg_to_rad(degree);
 		result = sin(radian);
 		printf("%f, %f \n", radian, result);
-		sendto(hServSock, (char*)&result, sizeof(result), 0, (SOCKADDR*)&clntAdr, sizeof(clntAdr)); // sizeof(clntAdr) recvfrom ¿Ã∂˚ ¥Ÿ∏ß.
+		sendto(hServSock, (char*)&result, sizeof(result), 0, (SOCKADDR*)&clntAdr, sizeof(clntAdr)); // sizeof(clntAdr) recvfrom Ïù¥Îûë Îã§Î¶Ñ.
 		
 
 	}
@@ -70,7 +70,7 @@ double calculate(double radian)
 	int result = sin(radian);
 	int i = 1;
 
-	// ∞ËªÍ...
+	// Í≥ÑÏÇ∞...
 	return result;
 }
 
