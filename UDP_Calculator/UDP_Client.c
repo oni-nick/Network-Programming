@@ -23,7 +23,7 @@ int main(int argc, char* argv[])
 	if (WSAStartup(MAKEWORD(2, 2), &wsaData) != 0)
 		ErrorHandling("WSAStartup() error!");
 
-	// Àü¼Û ÇÁ·ÎÅäÄÝ UDP ¼³Á¤ SOCK_DGRAM, 
+	// ì „ì†¡ í”„ë¡œí† ì½œ UDP ì„¤ì • SOCK_DGRAM, 
 	hSocket = socket(PF_INET, SOCK_DGRAM, 0);
 	if (hSocket == INVALID_SOCKET)
 		ErrorHandling("socket() error");
@@ -33,15 +33,15 @@ int main(int argc, char* argv[])
 	servAdr.sin_addr.s_addr = inet_addr(argv[1]);
 	servAdr.sin_port = htons(atoi(argv[2]));
 
-	// 720, 5 => ¼¼¹Ð
+	// 720, 5 => ì„¸ë°€
 	while (1) {
 		for (int i = 0; i < 360; i += 10) {
 			degree = i;
 			// printf("%d\n", degree);
 			sendto(hSocket, (char*)&degree, sizeof(int), 0, (SOCKADDR*)&servAdr, sizeof(servAdr));
 			recv(hSocket, (char*)&result, sizeof(result), 0);
-			// printf("¼­¹ö·ÎºÎÅÍ µé¾î¿Â °á°ú : %f \n ", result);
-			result = result * 20 + 20; // ¾ß~ [-1,1] [0,40]
+			// printf("ì„œë²„ë¡œë¶€í„° ë“¤ì–´ì˜¨ ê²°ê³¼ : %f \n ", result);
+			result = result * 20 + 20; // ì•¼~ [-1,1] [0,40]
 			// printf("%f", result);
 			for (int j = 0; j < (int)result; j++) {
 				printf("-");
