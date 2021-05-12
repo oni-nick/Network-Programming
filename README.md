@@ -6,6 +6,7 @@
 
 
 ## 실습: UDP 기반 소켓  이용해 Server, Clinet 구조로 sin(x) 그리기
+### UDP_based_sin(x) directory
 - Server: 각도를 받아 라디안으로 전환한 뒤, sin(x) 출력 값을 클라이언트에게 전달
 - Client: Server에게 해당 각도에대한 sin(x) 값을 요청한 뒤, 받아와서 terminal 창에 그림
 
